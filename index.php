@@ -1,5 +1,11 @@
 <?php
 
-require_once 'config/database.php';
+session_start();
 
-echo "Koneksi database berhasil!";
+if (isset($_SESSION['user_id'])) {
+    header('Location: dashboard/index.php');
+    exit;
+}
+
+header('Location: auth/login.php');
+exit;
